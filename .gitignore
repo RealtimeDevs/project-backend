@@ -12,14 +12,9 @@ out/
 # Maven
 # ==========================================
 target/
-!.mvn/wrapper/maven-wrapper.jar
 
-# ==========================================
-# Gradle
-# ==========================================
-.gradle/
-build/
-!gradle/wrapper/gradle-wrapper.jar
+# Maven Wrapper files should be committed
+!.mvn/wrapper/maven-wrapper.jar
 
 # ==========================================
 # Java
@@ -37,10 +32,9 @@ spring.log
 logs/
 *.pid
 
-# Local environment overrides
-application-local.properties
-application-local.yml
-application-local.yaml
+# Local Spring configuration overrides
+application-local.*
+application-dev-local.*
 
 # ==========================================
 # Environment Variables & Secrets
@@ -59,6 +53,7 @@ application-local.yaml
 # ==========================================
 # Operating Systems
 # ==========================================
+
 # Windows
 Thumbs.db
 Desktop.ini
@@ -85,3 +80,10 @@ Desktop.ini
 coverage/
 *.exec
 test-results/
+
+# ==========================================
+# Local Database Files
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
