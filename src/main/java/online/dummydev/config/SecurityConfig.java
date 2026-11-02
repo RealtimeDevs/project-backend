@@ -1,6 +1,7 @@
 
 package online.dummydev.config;
 
+import online.dummydev.infrastructure.security.AppJwtAuthenticationConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,14 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
+
+    private final AppJwtAuthenticationConverter converter;
+
+    public SecurityConfig(
+            AppJwtAuthenticationConverter converter) {
+
+        this.converter = converter;
+    }
 
     @Bean
     SecurityFilterChain securityFilterChain(
@@ -29,8 +38,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/public/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .oauth2ResourceServer(oauth -> oauth
-                        .jwt(jwt -> {})
+                .oauth2ResourceServer(oauth2 ->
+                        oauth2.jwt(jwt ->
+                                jwt.jwtAuthenticationConverter(converter)
+                        )
                 );
 
         return http.build();
