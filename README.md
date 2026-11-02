@@ -3,6 +3,7 @@
 Backend: Spring Boot
 Database: PostgreSQL
 Organization: RealtimeDevs
+Authentication: Clerk
 
 ## Branches
 - main: Production
