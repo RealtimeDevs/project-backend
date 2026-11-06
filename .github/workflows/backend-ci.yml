@@ -69,6 +69,30 @@ jobs:
     name: backend-ci
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: incident_management_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d incident_management_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DB_URL: jdbc:postgresql://localhost:5432/incident_management_test
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/incident_management_test
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
