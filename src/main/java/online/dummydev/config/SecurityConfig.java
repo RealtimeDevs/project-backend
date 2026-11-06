@@ -49,9 +49,14 @@ public class SecurityConfig {
 
     @Bean
     JwtDecoder jwtDecoder(
-            @Value("${CLERK_JWKS_URL}") String jwksUrl,
-            @Value("${CLERK_ISSUER}") String issuer,
-            @Value("${app.security.authorized-party}") String authorizedParty) {
+            @Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
+            String jwksUrl,
+
+            @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
+            String issuer,
+
+            @Value("${app.security.authorized-party}")
+            String authorizedParty) {
 
         NimbusJwtDecoder decoder =
                 NimbusJwtDecoder.withJwkSetUri(jwksUrl).build();
