@@ -1,0 +1,89 @@
+
+# ==========================================
+# IntelliJ IDEA
+# ==========================================
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ==========================================
+# Maven
+# ==========================================
+target/
+
+# Maven Wrapper files should be committed
+!.mvn/wrapper/maven-wrapper.jar
+
+# ==========================================
+# Java
+# ==========================================
+*.class
+*.log
+*.hprof
+hs_err_pid*
+replay_pid*
+
+# ==========================================
+# Spring Boot
+# ==========================================
+spring.log
+logs/
+*.pid
+
+# Local Spring configuration overrides
+application-local.*
+application-dev-local.*
+
+# ==========================================
+# Environment Variables & Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# ==========================================
+# Operating Systems
+# ==========================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Linux
+*~
+
+# ==========================================
+# Temporary Files
+# ==========================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ==========================================
+# Test & Coverage Reports
+# ==========================================
+coverage/
+*.exec
+test-results/
+
+# ==========================================
+# Local Database Files
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
